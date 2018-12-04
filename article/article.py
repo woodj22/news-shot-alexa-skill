@@ -1,8 +1,21 @@
 import requests
+from requests_html import HTMLSession
+session = HTMLSession()
+
 from bs4 import BeautifulSoup
 
-def retrieve_news_article_as_string():
-    return True
+def retrieve_news_article_as_string(article_url):
+    session = HTMLSession()
+
+    r = session.get(article_url)
+    # print(r.html.text)
+    txt = r.html.find('#story-body', first=True)
+    print(txt.find('p'))
+
+    # soup = BeautifulSoup(request.content, 'html.parser')
+    # mydivs = soup.find("div", {"class": "column--primary"})
+
+    return 'erfd'
 
 
 def list_news_articles_as_urls(base_url, news_site_suffix='news'):
@@ -15,9 +28,31 @@ def list_news_articles_as_urls(base_url, news_site_suffix='news'):
     main_article_href = soup.find("a", {"class": 'gs-c-promo-heading gs-o-faux-block-link__overlay-link gel-paragon-bold nw-o-link-split__anchor'})['href']
     response = soup.find_all("a", {"class": "gs-c-promo-heading gs-o-faux-block-link__overlay-link gel-pica-bold nw-o-link-split__anchor"})
 
-    links = set()
+    links = []
     for r in response:
-        links.add(r['href'])
-    links.add(main_article_href)
+        links.append(r['href'])
+
+    links.append(main_article_href)
 
     return links
+
+
+def sort_array_of_words_into_frequency(words):
+    new_words = {}
+    for word in words:
+        if word not in new_words:
+            new_words[word] = 1
+        else:
+            new_words[word] += 1
+
+    return new_words
+
+
+def filter_list_of_words_by_common_words(words, common_words):
+
+    new_words = []
+    for word in words:
+        if word not in common_words:
+            new_words.append(word)
+
+    return new_words
