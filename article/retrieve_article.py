@@ -1,8 +1,8 @@
 import requests
 from requests_html import HTMLSession
+from bs4 import BeautifulSoup
 session = HTMLSession()
 
-from bs4 import BeautifulSoup
 
 def retrieve_news_article_as_string(article_url):
     session = HTMLSession()
