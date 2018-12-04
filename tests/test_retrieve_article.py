@@ -14,15 +14,14 @@ def test_list_news_articles_as_urls():
         assert type(url) is str
 
 
-@pytest.mark.skip(reason="Not finished yet.")
-def test_retrieve_news_article_as_string():
+def test_retrieve_news_article_as_list():
 
     url = "https://www.bbc.co.uk/"
 
     article_suffix = retrieve_article.list_news_articles_as_urls(url)
 
     article_url = 'https://www.bbc.co.uk/' + article_suffix[0]
+    print(article_url)
+    news_string = retrieve_article.retrieve_news_article_as_list(article_url)
 
-    news_string = retrieve_article.retrieve_news_article_as_string(article_url)
-
-    assert type(news_string) is str
+    assert type(news_string) is list

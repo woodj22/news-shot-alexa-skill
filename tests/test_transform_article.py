@@ -25,9 +25,9 @@ def test_it_returns_true_if_a_word_is_in_a_list_of_common_words():
 
     word = 'the'
 
-    isInList = transform_article.word_is_in_list(word, common_words)
+    is_in_list = transform_article.word_is_in_list(word, common_words)
 
-    assert isInList is True
+    assert is_in_list is True
 
 
 def test_it_returns_false_if_a_word_is_not_in_a_list_common_words():
@@ -35,6 +35,6 @@ def test_it_returns_false_if_a_word_is_not_in_a_list_common_words():
 
     word = 'not_in_common_words'
 
-    isInList = transform_article.word_is_in_list(word, common_words)
+    is_in_list = transform_article.word_is_in_list(word, common_words)
 
-    assert isInList is False
+    assert is_in_list is False
