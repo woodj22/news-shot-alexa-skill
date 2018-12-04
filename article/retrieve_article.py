@@ -37,22 +37,3 @@ def list_news_articles_as_urls(base_url, news_site_suffix='news'):
     return links
 
 
-def sort_array_of_words_into_frequency(words):
-    new_words = {}
-    for word in words:
-        if word not in new_words:
-            new_words[word] = 1
-        else:
-            new_words[word] += 1
-
-    return new_words
-
-
-def filter_list_of_words_by_common_words(words, common_words):
-
-    new_words = []
-    for word in words:
-        if word not in common_words:
-            new_words.append(word)
-
-    return new_words
