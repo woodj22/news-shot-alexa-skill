@@ -7,7 +7,10 @@ def dump_news_article_main_body_into_list_of_sentences(article_url, body_class_n
 
     soup = BeautifulSoup(r.content, 'html.parser')
 
-    main_text = soup.find("div", {"class": body_class_name}).findAll('p')
+    try:
+        main_text = soup.find("div", {"class": body_class_name}).findAll('p')
+    except AttributeError:
+        return []
 
     return [sentence.get_text() for sentence in main_text]
 

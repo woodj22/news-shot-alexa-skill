@@ -5,7 +5,6 @@ from article.retrieve_article import *
 from article.transform_article import *
 
 
-
 def handle(event, context):
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",
@@ -30,8 +29,8 @@ def handle(event, context):
         words = split_list_of_sentences_into_list_of_lowercase_words(article_sentences)
 
         filtered_words = filter_list_of_words_by_common_words(words, common_words)
-        print(filtered_words)
-        ten_most_frequent_words = sort_list_of_words_into_frequency(filtered_words)
+
+        ten_most_frequent_words = sort_list_of_words_into_frequency(filtered_words)[:10]
 
         print(ten_most_frequent_words)
 

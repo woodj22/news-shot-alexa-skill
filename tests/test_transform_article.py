@@ -1,12 +1,12 @@
 from article import transform_article
 
 
-def test_it_can_sort_array_of_words_into_frequnecy_dict():
+def test_it_can_sort_array_of_words_into_frequency_dict():
     words = ['the', 'the', 'hello', 'the', 'world']
 
     sorted_words = transform_article.sort_list_of_words_into_frequency(words)
 
-    assert sorted_words == {'the': 3, 'hello': 1, 'world': 1}
+    assert sorted_words == [('the', 3), ('hello', 1), ('world', 1)]
 
 
 def test_it_can_filter_list_of_words_by_common_words():

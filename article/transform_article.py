@@ -11,7 +11,7 @@ def sort_list_of_words_into_frequency(words):
         else:
             new_words[word] += 1
 
-    return new_words
+    return [(k, new_words[k]) for k in sorted(new_words, key=new_words.get, reverse=True)]
 
 
 def filter_list_of_words_by_common_words(words, common_words):
