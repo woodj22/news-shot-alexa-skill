@@ -2,11 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def split_list_of_sentences_into_list_of_words(list_of_sentences):
-    return [word for sentences in list_of_sentences for word in sentences.split()]
-
-
-def dump_news_article_main_body(article_url, body_class_name):
+def dump_news_article_main_body_into_list_of_sentences(article_url, body_class_name):
     r = requests.get(article_url)
 
     soup = BeautifulSoup(r.content, 'html.parser')

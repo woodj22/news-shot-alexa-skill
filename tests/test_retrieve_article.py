@@ -11,32 +11,6 @@ def test_list_news_articles_as_urls():
         assert type(url) is str
 
 
-def test_retrieve_news_article_as_list_returns_list():
-
-    list_of_sentences = [
-        'The UK should be able to unilaterally cancel its withdrawal from the EU',
-        'anther test sentence',
-        'here to another year of a sentence'
-     ]
-    word_list = retrieve_article.split_list_of_sentences_into_list_of_words(list_of_sentences)
-
-    assert type(word_list) is list
-
-
-def test_retrieve_news_article_as_list_returns_corret_values():
-
-    list_of_sentences = [
-        'The UK',
-        'little john',
-        'urban living'
-
-     ]
-    word_list = retrieve_article.split_list_of_sentences_into_list_of_words(list_of_sentences)
-    print(word_list)
-    assert ['the', 'uk', 'little', 'john', 'urban', 'living'] == word_list
-    # assert type(word_list) is list
-
-
 def test_it_can_dump_news_article_main_body():
     url = "https://www.bbc.co.uk/"
 
@@ -46,6 +20,6 @@ def test_it_can_dump_news_article_main_body():
 
     class_name = 'story-body__inner'
 
-    news_string = retrieve_article.dump_news_article_main_body(article_url, class_name)
+    news_string = retrieve_article.dump_news_article_main_body_into_list_of_sentences(article_url, class_name)
     print(news_string)
     assert type(news_string) is list

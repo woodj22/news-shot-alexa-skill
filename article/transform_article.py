@@ -1,6 +1,9 @@
 
+def split_list_of_sentences_into_list_of_lowercase_words(list_of_sentences):
+    return [word.lower() for sentences in list_of_sentences for word in sentences.split()]
 
-def sort_array_of_words_into_frequency(words):
+
+def sort_list_of_words_into_frequency(words):
     new_words = {}
     for word in words:
         if word not in new_words:

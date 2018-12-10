@@ -4,7 +4,7 @@ from article import transform_article
 def test_it_can_sort_array_of_words_into_frequnecy_dict():
     words = ['the', 'the', 'hello', 'the', 'world']
 
-    sorted_words = transform_article.sort_array_of_words_into_frequency(words)
+    sorted_words = transform_article.sort_list_of_words_into_frequency(words)
 
     assert sorted_words == {'the': 3, 'hello': 1, 'world': 1}
 
@@ -38,3 +38,19 @@ def test_it_returns_false_if_a_word_is_not_in_a_list_common_words():
     is_in_list = transform_article.word_is_in_list(word, common_words)
 
     assert is_in_list is False
+
+
+def test_it_can_split_list_of_sentences_into_list_of_lowercase_words():
+
+    list_of_sentences = [
+        'The UK',
+        'little john',
+        'urban living'
+
+     ]
+
+    word_list = transform_article.split_list_of_sentences_into_list_of_lowercase_words(list_of_sentences)
+
+    assert type(word_list) is list
+
+    assert ['the', 'uk', 'little', 'john', 'urban', 'living'] == word_list
